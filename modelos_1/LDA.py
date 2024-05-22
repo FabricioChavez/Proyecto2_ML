@@ -1,12 +1,11 @@
-import os
 import numpy as np
-import scipy.io
-import matplotlib.pyplot as plt
-from sklearn.decomposition import PCA
-from sklearn import datasets
+import pandas as pd
 from sklearn.model_selection import train_test_split
-class LDA:
-    def __init__(self, x, y):
+from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
+from sklearn.metrics import accuracy_score
+
+class lda:
+    def _init_(self, x, y):
         self.x = x
         self.y = y
         self.vectors = None
@@ -53,31 +52,3 @@ class LDA:
         distances = np.array(distances)
         predicted_labels = np.argmin(distances, axis=0)
         return predicted_labels
-    
-
-
-
-
-
-
-        
-       
-iris = datasets.load_iris()
-x = iris.data
-y = iris.target
-class_names = iris.target_names
-
-ld = LDA(x , y)
-values , vectors = ld.solution()
-
-print("VECTORS :",vectors)
-print("VALUES :" ,values)
-
-
-from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
-clf = LinearDiscriminantAnalysis()
-results = clf.fit(x,y)
-
-print("LDA SKLEARN TAMOS CAGDOS??",results.scalings_)
-
-#######################################################
