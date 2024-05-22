@@ -4,8 +4,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 from sklearn.metrics import accuracy_score
 
-class lda:
-    def _init_(self, x, y):
+class LDA:
+    def __init__(self, x, y):
         self.x = x
         self.y = y
         self.vectors = None
