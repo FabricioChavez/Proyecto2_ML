@@ -234,12 +234,12 @@ class RandomForest:
             y_pred = np.array(y_pred).reshape(-1, 1)
             y_predictions = np.hstack((y_predictions, y_pred))
 
-        # Modify to handle ties
+
         prediction_majority, count = mode(y_predictions, axis=1)
         prediction_majority = prediction_majority.flatten()
         count = count.flatten()
 
-        # Handle ties by choosing the class with the highest frequency in y_predictions
+
         for i in range(len(prediction_majority)):
             if len(np.unique(y_predictions[i])) > 1 and np.all(count[i] == count[0]):
                 unique, counts = np.unique(y_predictions[i], return_counts=True)
